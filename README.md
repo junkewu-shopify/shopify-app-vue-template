@@ -102,6 +102,3 @@ Here are some useful links to get you started:
 
 ![Screenshot](https://drive.google.com/uc?id=1yCr3lc3yqzgyV3ZiTSJjlIEVPtNY27LX)
 
-## App Submission
-
-Built an app using this template? Submit it here [App submission url](https://forms.gle/K8VGCqvcvfBRSug58)

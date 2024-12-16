@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "a76ebf2bc018c2703a099d1a16303aa4"
+name = "vue-temp2"
+handle = "vue-temp2"
+application_url = "https://3036-183-15-176-171.ngrok-free.app"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-6d3dbc62.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = ""
+
+[auth]
+redirect_urls = [
+  "https://3036-183-15-176-171.ngrok-free.app/auth/callback",
+  "https://3036-183-15-176-171.ngrok-free.app/auth/shopify/callback",
+  "https://3036-183-15-176-171.ngrok-free.app/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false

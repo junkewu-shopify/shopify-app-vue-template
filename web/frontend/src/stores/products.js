@@ -1,19 +1,20 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import { useAuthenticatedFetch } from '../helpers/useAuthenticatedFetch'
+import { useServerApiFetch } from '../helpers/useAuthenticatedFetch'
 
 export const useProductCounterStore = defineStore('productCounter', () => {
   const count = ref(0)
-  const useFetch = useAuthenticatedFetch()
+  const useFetch = useServerApiFetch()
 
   const getProducts = async () => {
     try {
-      const response = await useFetch('/api/products/count')
+      const response = await useFetch('/server/v1/products/count')
       if (!response.ok) {
         throw new Error(`Failed to fetch product count: ${response.status}`)
       }
       const data = await response.json()
       count.value = data.productsCount.count
+      console.log("c",count)
     } catch (error) {
       console.log(`Failed to fetch product count: ${error.message}`)
     }

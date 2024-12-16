@@ -16,6 +16,13 @@ if (
 
 const proxyOptions = {
   target: `http://127.0.0.1:${process.env.BACKEND_PORT}`,
+  // target: `http://127.0.0.1:3000`,
+  changeOrigin: false,
+  secure: true,
+  ws: false
+}
+const serverApiProxyOptions = {
+  target: `http://127.0.0.1:3000`,
   changeOrigin: false,
   secure: true,
   ws: false
@@ -58,7 +65,17 @@ export default defineConfig({
     hmr: hmrConfig,
     proxy: {
       '^/(\\?.*)?$': proxyOptions,
-      '^/api(/|(\\?.*)?$)': proxyOptions
+      '^/api(/|(\\?.*)?$)': proxyOptions,
+    //  '^/server/v1(/|(\\?.*)?$)': serverApiProxyOptions,
+     '^/server/v1(/|(\\?.*)?$)': {
+      target: `http://127.0.0.1:3000}`,
+      changeOrigin: true,
+      secure: false,
+      rewrite: (path) => {
+        console.log(`Proxying request for: ${path}`); // 添加调试日志
+        return path;
+      },
+  },
     }
   }
 })
